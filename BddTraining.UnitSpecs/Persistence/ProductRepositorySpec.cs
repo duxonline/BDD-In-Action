@@ -1,6 +1,7 @@
 ﻿using BddTraining.Common;
 using BddTraining.DomainModel;
 using BddTraining.DomainModel.RepositoryInterfaces;
+using BddTraining.UnitSpecs.Persistence.Utility;
 using FluentAssert;
 using NUnit.Framework;
 using RosterLive.SharpArch.NHibernate;
