@@ -72,7 +72,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CreateDatabase.sql" />
-    <Content Include="CleanDatabase.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
