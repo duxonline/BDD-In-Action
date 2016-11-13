@@ -1,7 +1,7 @@
 ﻿using BddTraining.DomainModel;
 using BddTraining.DomainModel.Commands;
 
-namespace BddTraining.CmdHandlers.Interfaces
+namespace BddTraining.RequestHandlers.Interfaces
 {
     public interface IAddToCartCmdHandler
     {

@@ -81,8 +81,8 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Files\View Shopping Cart Summary.feature.cs">
-      <DependentUpon>View Shopping Cart Summary.feature</DependentUpon>
+    <Compile Include="Files\View Shopping Cart Details.feature.cs">
+      <DependentUpon>View Shopping Cart Details.feature</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -93,7 +93,7 @@
     <Compile Include="Steps\Utility\CartItemInput.cs" />
     <Compile Include="Steps\Utility\CartBuilder.cs" />
     <Compile Include="Steps\Utility\ProductBuilder.cs" />
-    <Compile Include="Steps\ViewShoppingCartSummarySteps.cs" />
+    <Compile Include="Steps\ViewShoppingCartDetailsSteps.cs" />
     <Compile Include="Utility\FeatureBase.cs" />
     <Compile Include="Utility\BeforeAfterTestRun.cs" />
   </ItemGroup>
@@ -114,9 +114,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Calculate Import Duty.feature.cs</LastGenOutput>
     </None>
-    <None Include="Files\View Shopping Cart Summary.feature">
+    <None Include="Files\View Shopping Cart Details.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>View Shopping Cart Summary.feature.cs</LastGenOutput>
+      <LastGenOutput>View Shopping Cart Details.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>

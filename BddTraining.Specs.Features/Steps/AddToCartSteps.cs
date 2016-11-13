@@ -1,10 +1,9 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using BddTraining.Common;
 using BddTraining.DomainModel;
 using BddTraining.DomainModel.Commands;
 using BddTraining.Features.Steps.Utility;
-using BddTraining.RequestHandlers;
+using BddTraining.RequestHandlers.Interfaces;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -27,7 +26,7 @@ namespace BddTraining.Features.Steps
         [When(@"I add the product to my cart")]
         public void WhenIAddTheProductToMyCart()
         {
-            var cmdHandler = DependencyResolver.Resolve<AddToCartCmdHandler>();
+            var cmdHandler = DependencyResolver.Resolve<IAddToCartCmdHandler>();
             var addToCartCmd = new AddToCartCmd(null, _product.ID, 1);
             _shoppingCart = cmdHandler.Handle(addToCartCmd);
         }

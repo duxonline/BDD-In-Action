@@ -1,8 +1,8 @@
 ﻿using System;
-using BddTraining.CmdHandlers.Interfaces;
 using BddTraining.DomainModel;
 using BddTraining.DomainModel.Commands;
 using BddTraining.DomainModel.RepositoryInterfaces;
+using BddTraining.RequestHandlers.Interfaces;
 using RosterLive.SharpArch.NHibernate;
 
 namespace BddTraining.RequestHandlers
@@ -20,7 +20,7 @@ namespace BddTraining.RequestHandlers
 
         public ShoppingCart Handle(AddToCartCmd command)
         {
-            var shoppingCart = GetCart(command);
+            var shoppingCart = GetCart(command); // Todo: refactor the code
 
             var product = _productRepository.Get(command.ProductId);
 

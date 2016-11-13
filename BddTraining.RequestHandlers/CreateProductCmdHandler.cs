@@ -1,8 +1,8 @@
-﻿using BddTraining.CmdHandlers.Interfaces;
-using BddTraining.DomainModel;
+﻿using BddTraining.DomainModel;
 using BddTraining.DomainModel.Commands;
 using BddTraining.DomainModel.Factories;
 using BddTraining.DomainModel.RepositoryInterfaces;
+using BddTraining.RequestHandlers.Interfaces;
 using RosterLive.SharpArch.NHibernate;
 
 namespace BddTraining.RequestHandlers

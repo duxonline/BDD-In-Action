@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddToCartCmdHandler.cs" />
+    <Compile Include="CartQueryHandler.cs" />
     <Compile Include="CreateProductCmdHandler.cs" />
+    <Compile Include="Interfaces\ICartQueryHandler.cs" />
     <Compile Include="Interfaces\ICreateProductCmdHandler.cs" />
     <Compile Include="Interfaces\IAddToCartCmdHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
