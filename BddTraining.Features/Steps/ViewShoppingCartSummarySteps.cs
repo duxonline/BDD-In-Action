@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using BddTraining.Common;
 using BddTraining.DomainModel;
+using BddTraining.DomainModel.Commands;
 using BddTraining.Features.Steps.Utility;
+using BddTraining.RequestHandlers;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -25,17 +28,23 @@ namespace BddTraining.Features.Steps
         [When(@"I add them to my cart")]
         public void WhenIAddThemToMyCart()
         {
-            _shoppingCart = AddToCart();
+            var cmdHandler = DependencyResolver.Resolve<AddToCartCmdHandler>();
+
+            var firstCmd = new AddToCartCmd(null, _products[0].ID, 1);
+            _shoppingCart = cmdHandler.Handle(firstCmd);
+
+            var secondCmd = new AddToCartCmd(_shoppingCart.ID, _products[1].ID, 1);
+            _shoppingCart = cmdHandler.Handle(secondCmd);
         }
 
         [Then(@"My cart summary should look like following:")]
         public void ThenMyCartSummaryShouldLookLikeFollowing(Table table)
         {
-            var entriesExpected = table.CreateSet<CartItemEntry>().ToList();
-            var itemsFound = _shoppingCart.CartItems.ToList();
+            var entriesExpected = table.CreateSet<CartItemInput>().ToList();
+            var entriesFound = _shoppingCart.CartItems.ToList();
 
             entriesExpected.Count.ShouldBeEquivalentTo(2);
-            Validate(itemsFound, entriesExpected);
+            Validate(entriesFound, entriesExpected);
         }
 
         [Then(@"The total price is \$(.*)")]
@@ -56,36 +65,27 @@ namespace BddTraining.Features.Steps
             _shoppingCart.GrandTotal.ShouldBeEquivalentTo(grandTotal);
         }
 
-        private static void Validate(IEnumerable<ShoppingCartItem> itemsFound, IEnumerable<CartItemEntry> entriesExpected)
+        private static void Validate(IEnumerable<ShoppingCartItem> itemsFound, IEnumerable<CartItemInput> entriesExpected)
         {
-            var foundItems = itemsFound.OrderBy(i => i.Name).ToList();
+            var foundEntries = itemsFound.OrderBy(i => i.Name).ToList();
             var expectedEntries = entriesExpected.OrderBy(e => e.Name).ToList();
 
-            for (var index = 0; index < foundItems.Count; index++)
+            for (var index = 0; index < foundEntries.Count; index++)
             {
-                var foundItem = foundItems[index];
+                var foundEntry = foundEntries[index];
                 var expectedEntry = expectedEntries[index];
 
-                Validate(foundItem, expectedEntry);
+                Validate(foundEntry, expectedEntry);
             }
         }
 
-        private static void Validate(ShoppingCartItem foundItem, CartItemEntry expectedEntry)
+        private static void Validate(ShoppingCartItem foundEntry, CartItemInput expectedEntry)
         {
-            foundItem.Name.ShouldBeEquivalentTo(expectedEntry.Name);
-            foundItem.Price.ShouldBeEquivalentTo(expectedEntry.Price);
-            foundItem.Quantity.ShouldBeEquivalentTo(expectedEntry.Quantity);
-            foundItem.SubTotal.ShouldBeEquivalentTo(expectedEntry.SubTotal);
-            foundItem.Tax.ShouldBeEquivalentTo(expectedEntry.Tax);
-        }
-
-        private ShoppingCart AddToCart()
-        {
-            var firstCmd = new AddToCartCmd(Guid.Empty, _products[0].ID, 1);
-            var firstCart = CartBuilder.Build(firstCmd);
-
-            var secondCmd = new AddToCartCmd(firstCart.ID, _products[1].ID, 1);
-            return CartBuilder.Build(secondCmd);
+            foundEntry.Name.ShouldBeEquivalentTo(expectedEntry.Name);
+            foundEntry.Price.ShouldBeEquivalentTo(expectedEntry.Price);
+            foundEntry.Quantity.ShouldBeEquivalentTo(expectedEntry.Quantity);
+            foundEntry.SubTotal.ShouldBeEquivalentTo(expectedEntry.SubTotal);
+            foundEntry.Tax.ShouldBeEquivalentTo(expectedEntry.Tax);
         }
     }
 }

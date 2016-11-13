@@ -3,7 +3,8 @@ using System.Linq;
 using BddTraining.CmdHandlers;
 using BddTraining.Common;
 using BddTraining.DomainModel;
-using RosterLive.SharpArch.NHibernate;
+using BddTraining.DomainModel.Commands;
+using BddTraining.RequestHandlers;
 
 namespace BddTraining.Features.Steps.Utility
 {
@@ -11,10 +12,9 @@ namespace BddTraining.Features.Steps.Utility
     {
         public static Product Build(CreateProductCmd command)
         {
-            var cmdHandler = DependencyResolver.Resolve<CreateProductCmdHandler>();
+            var createProductCmdHandler = DependencyResolver.Resolve<CreateProductCmdHandler>();
 
-            var product = cmdHandler.Handle(command);
-            SessionManager.CommitTrans();
+            var product = createProductCmdHandler.Handle(command);
 
             return product;
         }

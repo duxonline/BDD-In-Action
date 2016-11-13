@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -39,24 +40,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddToCartCmd.cs" />
-    <Compile Include="ProductFactory.cs" />
+    <Compile Include="Commands\AddToCartCmd.cs" />
+    <Compile Include="Factories\ProductFactory.cs" />
     <Compile Include="ShoppingCartItem.cs" />
     <Compile Include="ProducType.cs" />
     <Compile Include="RepositoryInterfaces\IProductRepository.cs" />
-    <Compile Include="CreateProductCmd.cs" />
+    <Compile Include="Commands\CreateProductCmd.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryInterfaces\IShoppingCartRepository.cs" />
     <Compile Include="ShoppingCart.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Projects\RosterLive.SharpArch\app\RosterLive.SharpArch.Domain\RosterLive.SharpArch.Domain.csproj">
+    <ProjectReference Include="..\..\RosterLive.SharpArch\app\RosterLive.SharpArch.Domain\RosterLive.SharpArch.Domain.csproj">
       <Project>{6ABEA9CB-7E93-4EF2-89F0-34ED342CD1EB}</Project>
       <Name>RosterLive.SharpArch.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

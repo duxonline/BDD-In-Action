@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Linq;
+using BddTraining.Common;
 using BddTraining.DomainModel;
+using BddTraining.DomainModel.Commands;
 using BddTraining.Features.Steps.Utility;
+using BddTraining.RequestHandlers;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -24,14 +27,15 @@ namespace BddTraining.Features.Steps
         [When(@"I add the product to my cart")]
         public void WhenIAddTheProductToMyCart()
         {
-            var addToCartCmd = new AddToCartCmd(Guid.Empty, _product.ID, 1);
-            _shoppingCart = CartBuilder.Build(addToCartCmd);
+            var cmdHandler = DependencyResolver.Resolve<AddToCartCmdHandler>();
+            var addToCartCmd = new AddToCartCmd(null, _product.ID, 1);
+            _shoppingCart = cmdHandler.Handle(addToCartCmd);
         }
 
         [Then(@"My cart item should look like the following:")]
         public void ThenMyCartItemShouldLookLikeTheFollowing(Table table)
         {
-            var itemEntry = table.CreateInstance<CartItemEntry>();
+            var itemEntry = table.CreateInstance<CartItemInput>();
             var cartItem = _shoppingCart.CartItems.First();
 
             cartItem.Name.ShouldBeEquivalentTo(itemEntry.Name);

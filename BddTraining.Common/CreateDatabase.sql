@@ -1,9 +1,9 @@
 ﻿CREATE DATABASE [BddTraining]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'BddTraining', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\BddTraining.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+( NAME = N'BddTraining', FILENAME = N'C:\Bdd\Databases\BddTraining.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
  LOG ON 
-( NAME = N'BddTraining_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\BddTraining_log.ldf' , SIZE = 2048KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+( NAME = N'BddTraining_log', FILENAME = N'C:\Bdd\Databases\BddTraining_log.ldf' , SIZE = 2048KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
 GO
 
 USE [BddTraining]

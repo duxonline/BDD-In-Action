@@ -1,4 +1,5 @@
 ﻿using BddTraining.DomainModel;
+using BddTraining.DomainModel.Commands;
 using BddTraining.Features.Steps.Utility;
 using BddTraining.Features.Utility;
 using FluentAssertions;

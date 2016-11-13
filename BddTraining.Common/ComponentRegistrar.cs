@@ -13,23 +13,7 @@ namespace BddTraining.Common
         {
             AddGenericRepositories(container);
             AddCustomRepositories(container);
-            AddApplicationServices(container);
-        }
-
-        public static void AddApplicationServices(IWindsorContainer container)
-        {
-            container.Register(
-                Classes.FromAssembly(Assembly.Load("BddTraining.CmdHandlers"))
-                    .Pick()
-                    .WithService.FirstInterface());
-        }
-
-        public static void AddCustomRepositories(IWindsorContainer container)
-        {
-            container.Register(
-                Classes.FromAssembly(Assembly.Load("BddTraining.DomainModel.Repositories"))
-                    .Pick()
-                .WithService.InterfaceNamespace("BddTraining.DomainModel.RepositoryInterfaces"));
+            AddRequestHandlers(container);
         }
 
         public static void AddGenericRepositories(IWindsorContainer container)
@@ -39,6 +23,21 @@ namespace BddTraining.Common
                     .ImplementedBy(typeof(Repository<>))
                     .Named("repository"));
         }
-    }
 
+        public static void AddCustomRepositories(IWindsorContainer container)
+        {
+            container.Register(
+                Classes.FromAssembly(Assembly.Load("BddTraining.Repositories"))
+                    .Pick()
+                .WithService.InterfaceNamespace("BddTraining.DomainModel.RepositoryInterfaces"));
+        }
+
+        public static void AddRequestHandlers(IWindsorContainer container)
+        {
+            container.Register(
+                Classes.FromAssembly(Assembly.Load("BddTraining.RequestHandlers"))
+                    .Pick()
+                .WithService.InterfaceNamespace("BddTraining.RequestHandlers.Interfaces"));
+        }
+    }
 }

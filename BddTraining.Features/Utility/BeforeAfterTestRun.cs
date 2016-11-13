@@ -10,7 +10,7 @@ namespace BddTraining.Features.Utility
         [BeforeTestRun]
         public static void Before()
         {
-            SessionManager.HbmAssembly = "BddTraining.DomainModel.Repositories.dll";
+            SessionManager.HbmAssembly = "BddTraining.Repositories.dll";
             DependencyResolver.Initialize();
         }
     }

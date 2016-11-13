@@ -1,7 +1,7 @@
-﻿using BddTraining.CmdHandlers;
-using BddTraining.Common;
+﻿using BddTraining.Common;
 using BddTraining.DomainModel;
-using RosterLive.SharpArch.NHibernate;
+using BddTraining.DomainModel.Commands;
+using BddTraining.RequestHandlers;
 
 namespace BddTraining.Features.Steps.Utility
 {
@@ -12,7 +12,6 @@ namespace BddTraining.Features.Steps.Utility
             var cmdHandler = DependencyResolver.Resolve<AddToCartCmdHandler>();
 
             var shoppingCart = cmdHandler.Handle(command);
-            SessionManager.CommitTrans();
 
             return shoppingCart;
         }
