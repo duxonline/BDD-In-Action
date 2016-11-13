@@ -1,7 +1,7 @@
 ﻿using BddTraining.Common;
 using NUnit.Framework;
 
-namespace BddTraining.RepositoryTests
+namespace BddTraining.Specs.Repositories
 {
     public class RepositorySpec
     {

@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using RosterLive.SharpArch.NHibernate;
 
-namespace BddTraining.RepositoryTests
+namespace BddTraining.Specs.Repositories
 {
     [SetUpFixture]
     public class GlobalSetup

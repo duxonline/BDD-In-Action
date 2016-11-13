@@ -7,7 +7,7 @@ using FluentAssert;
 using NUnit.Framework;
 using RosterLive.SharpArch.NHibernate;
 
-namespace BddTraining.RepositoryTests
+namespace BddTraining.Specs.Repositories
 {
     [TestFixture]
     public class ProductRepositorySpec : RepositorySpec

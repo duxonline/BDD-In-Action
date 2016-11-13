@@ -7,8 +7,8 @@
     <ProjectGuid>{B4130719-1DAB-485C-9761-B4C261AB8B43}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BddTraining.RepositoryTests</RootNamespace>
-    <AssemblyName>BddTraining.RepositoryTests</AssemblyName>
+    <RootNamespace>BddTraining.Specs.Repositories</RootNamespace>
+    <AssemblyName>BddTraining.Specs.Repositories</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>

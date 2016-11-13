@@ -6,7 +6,7 @@ using BddTraining.DomainModel.Factories;
 using FluentAssert;
 using NUnit.Framework;
 
-namespace BddTraining.UnitTests
+namespace BddTraining.Specs.LogicComponents
 {
     [TestFixture]
     public class AddProductToCart
