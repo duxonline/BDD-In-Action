@@ -23,7 +23,7 @@ namespace BddTraining.Features.Steps
             var createProductCmdHandler = DependencyResolver.Resolve<ICreateProductCmdHandler>();
             _product = createProductCmdHandler.Handle(command);
         }
-
+        
         [When(@"I add the product to my cart")]
         public void WhenIAddTheProductToMyCart()
         {
@@ -31,7 +31,7 @@ namespace BddTraining.Features.Steps
             var addToCartCmd = new AddToCartCmd(null, _product.ID, 1);
             _shoppingCart = cmdHandler.Handle(addToCartCmd);
         }
-
+        
         [Then(@"My cart item should look like the following:")]
         public void ThenMyCartItemShouldLookLikeTheFollowing(Table table)
         {
