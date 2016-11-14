@@ -20,7 +20,8 @@ namespace BddTraining.Features.Steps
         public void GivenIHaveTheFollowingProduct(Table table)
         {
             var command = table.CreateInstance<CreateProductCmd>();
-            _product = ProductBuilder.Build(command);
+            var createProductCmdHandler = DependencyResolver.Resolve<ICreateProductCmdHandler>();
+            _product = createProductCmdHandler.Handle(command);
         }
 
         [When(@"I add the product to my cart")]

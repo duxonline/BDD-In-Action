@@ -1,5 +1,4 @@
-﻿using System;
-using BddTraining.DomainModel;
+﻿using BddTraining.DomainModel;
 using BddTraining.DomainModel.Commands;
 using BddTraining.DomainModel.RepositoryInterfaces;
 using BddTraining.RequestHandlers.Interfaces;
@@ -11,16 +10,18 @@ namespace BddTraining.RequestHandlers
     {
         private readonly IShoppingCartRepository _cartRepository;
         private readonly IProductRepository _productRepository;
+        private readonly IShoppingCartRetriever _cartRetriever;
 
-        public AddToCartCmdHandler(IShoppingCartRepository cartRepository, IProductRepository productRepository)
+        public AddToCartCmdHandler(IShoppingCartRepository cartRepository, IProductRepository productRepository, IShoppingCartRetriever cartRetriever)
         {
             _cartRepository = cartRepository;
             _productRepository = productRepository;
+            _cartRetriever = cartRetriever;
         }
 
         public ShoppingCart Handle(AddToCartCmd command)
         {
-            var shoppingCart = GetCart(command); // Todo: refactor the code
+            var shoppingCart = _cartRetriever.Get(command.CartId);
 
             var product = _productRepository.Get(command.ProductId);
 
@@ -31,23 +32,6 @@ namespace BddTraining.RequestHandlers
             SessionManager.CommitTrans();
 
             return shoppingCart;
-        }
-
-        private ShoppingCart GetCart(AddToCartCmd command)
-        {
-            var cartExists = command.CartId != null;
-
-            if (cartExists)
-            {
-                var shoppingCart = _cartRepository.Get(command.CartId.Value);
-
-                if (shoppingCart != null)
-                    return shoppingCart;
-
-                throw new Exception(string.Format("Shopping cart ID ({0}) is not valid.", command.CartId));
-            }
-
-            return new ShoppingCart();
         }
     }
 }

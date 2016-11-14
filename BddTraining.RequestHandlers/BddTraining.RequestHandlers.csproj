@@ -42,10 +42,12 @@
     <Compile Include="AddToCartCmdHandler.cs" />
     <Compile Include="CartQueryHandler.cs" />
     <Compile Include="CreateProductCmdHandler.cs" />
+    <Compile Include="Interfaces\IShoppingCartRetriever.cs" />
     <Compile Include="Interfaces\ICartQueryHandler.cs" />
     <Compile Include="Interfaces\ICreateProductCmdHandler.cs" />
     <Compile Include="Interfaces\IAddToCartCmdHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShoppingCartRetriever.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\RosterLive.SharpArch\app\RosterLive.SharpArch.Domain\RosterLive.SharpArch.Domain.csproj">

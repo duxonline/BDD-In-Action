@@ -3,7 +3,6 @@ using System.Linq;
 using BddTraining.Common;
 using BddTraining.DomainModel;
 using BddTraining.DomainModel.Commands;
-using BddTraining.RequestHandlers;
 using BddTraining.RequestHandlers.Interfaces;
 
 namespace BddTraining.Features.Steps.Utility
