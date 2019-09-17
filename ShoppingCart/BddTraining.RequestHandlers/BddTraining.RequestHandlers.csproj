@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1DE24BB6-5B8D-46CE-88D3-7CF30FE04592}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BddTraining.RequestHandlers</RootNamespace>
+    <AssemblyName>BddTraining.RequestHandlers</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddToCartCmdHandler.cs" />
+    <Compile Include="CartQueryHandler.cs" />
+    <Compile Include="CreateProductCmdHandler.cs" />
+    <Compile Include="Interfaces\IShoppingCartRetriever.cs" />
+    <Compile Include="Interfaces\ICartQueryHandler.cs" />
+    <Compile Include="Interfaces\ICreateProductCmdHandler.cs" />
+    <Compile Include="Interfaces\IAddToCartCmdHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShoppingCartRetriever.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BddTraining.SharpArch\app\BddTraining.SharpArch.Domain\BddTraining.SharpArch.Domain.csproj">
+      <Project>{6ABEA9CB-7E93-4EF2-89F0-34ED342CD1EB}</Project>
+      <Name>BddTraining.SharpArch.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BddTraining.SharpArch\app\BddTraining.SharpArch.NHibernate\BddTraining.SharpArch.NHibernate.csproj">
+      <Project>{5c4888c4-cab1-45e5-9581-761778131c97}</Project>
+      <Name>BddTraining.SharpArch.NHibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BddTraining.DomainModel\BddTraining.DomainModel.csproj">
+      <Project>{F4BB8BD7-A934-4165-B04F-3BB38943012D}</Project>
+      <Name>BddTraining.DomainModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
