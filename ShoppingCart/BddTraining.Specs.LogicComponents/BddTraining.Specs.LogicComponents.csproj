@@ -71,8 +71,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BddTraining.SharpArch\app\BddTraining.SharpArch.Domain\BddTraining.SharpArch.Domain.csproj">
-      <Project>{6ABEA9CB-7E93-4EF2-89F0-34ED342CD1EB}</Project>
+    <ProjectReference Include="..\..\SharpArch\app\BddTraining.SharpArch.Domain\BddTraining.SharpArch.Domain.csproj">
+      <Project>{6abea9cb-7e93-4ef2-89f0-34ed342cd1eb}</Project>
       <Name>BddTraining.SharpArch.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\BddTraining.Common\BddTraining.Common.csproj">

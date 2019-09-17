@@ -80,15 +80,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BddTraining.SharpArch\app\BddTraining.SharpArch.Domain\BddTraining.SharpArch.Domain.csproj">
-      <Project>{6ABEA9CB-7E93-4EF2-89F0-34ED342CD1EB}</Project>
+    <ProjectReference Include="..\..\SharpArch\app\BddTraining.SharpArch.Domain\BddTraining.SharpArch.Domain.csproj">
+      <Project>{6abea9cb-7e93-4ef2-89f0-34ed342cd1eb}</Project>
       <Name>BddTraining.SharpArch.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\BddTraining.SharpArch\app\BddTraining.SharpArch.NHibernate\BddTraining.SharpArch.NHibernate.csproj">
-      <Project>{5C4888C4-CAB1-45E5-9581-761778131C97}</Project>
+    <ProjectReference Include="..\..\SharpArch\app\BddTraining.SharpArch.NHibernate\BddTraining.SharpArch.NHibernate.csproj">
+      <Project>{5c4888c4-cab1-45e5-9581-761778131c97}</Project>
       <Name>BddTraining.SharpArch.NHibernate</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\BddTraining.SharpArch\app\BddTraining.SharpArch.Web\BddTraining.SharpArch.Web.csproj">
+    <ProjectReference Include="..\..\SharpArch\app\BddTraining.SharpArch.Web\BddTraining.SharpArch.Web.csproj">
       <Project>{17073d22-d91f-4ab3-bb9d-e6cbe951bfbb}</Project>
       <Name>BddTraining.SharpArch.Web</Name>
     </ProjectReference>

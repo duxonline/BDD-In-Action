@@ -124,11 +124,11 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BddTraining.SharpArch\app\BddTraining.SharpArch.Domain\BddTraining.SharpArch.Domain.csproj">
+    <ProjectReference Include="..\..\SharpArch\app\BddTraining.SharpArch.Domain\BddTraining.SharpArch.Domain.csproj">
       <Project>{6abea9cb-7e93-4ef2-89f0-34ed342cd1eb}</Project>
       <Name>BddTraining.SharpArch.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\BddTraining.SharpArch\app\BddTraining.SharpArch.NHibernate\BddTraining.SharpArch.NHibernate.csproj">
+    <ProjectReference Include="..\..\SharpArch\app\BddTraining.SharpArch.NHibernate\BddTraining.SharpArch.NHibernate.csproj">
       <Project>{5c4888c4-cab1-45e5-9581-761778131c97}</Project>
       <Name>BddTraining.SharpArch.NHibernate</Name>
     </ProjectReference>
